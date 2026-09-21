@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mango中国官网 - 聚焦全球时尚资讯、流行趋势分析与生活方式分享。提供最新时尚新闻、潮流单品推荐及穿搭灵感，是时尚爱好者获取权威时尚信息的首选平台。">
+    <meta name="keywords" content="mango中国官网, Mango中国, 时尚资讯, 潮流趋势, 时尚穿搭, Mango官网">
+    <title>Mango中国官网-全球时尚资讯与潮流趋势分享</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e03e3e;
+            --secondary-color: #1a1a1a;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #f9f9f9;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --container-width: 1200px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: var(--spacing-unit);
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #c92a2a;
+            border-color: #c92a2a;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            font-size: 12px;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--secondary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--secondary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-tag {
+            background-color: var(--primary-color);
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Trending Section */
+        .trending-section {
+            padding: 60px 0;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+
+        .author-name {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .read-more {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Fashion Categories */
+        .categories-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            position: relative;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .category-title {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .category-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            padding: 80px 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #999;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .trending-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+            nav.active {
+                display: block;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎来到Mango中国官网 - 全球时尚资讯与潮流趋势分享</span>
+            <span>订阅我们获取最新动态</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <button class="icon-btn mobile-menu-btn" id="menuToggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
+            
+            <a href="#" class="logo">Mango<span>中国</span></a>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">时尚资讯</a></li>
+                    <li><a href="#">流行趋势</a></li>
+                    <li><a href="#">穿搭指南</a></li>
+                    <li><a href="#">品牌故事</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <button class="icon-btn" aria-label="搜索">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="icon-btn" aria-label="用户中心">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://picsum.photos/seed/fashionhero/1920/600" alt="Fashion Trend" class="hero-bg">
+        <div class="hero-content">
+            <span class="hero-tag">本季热点</span>
+            <h1>探索2024秋季复古与现代的完美融合</h1>
+            <p>从街头潮流到高级定制，Mango中国官网为您深度解析本季最值得关注的时尚风向。</p>
+            <a href="#" class="btn btn-primary">阅读更多</a>
+            <a href="#" class="btn btn-outline" style="color:white; border-color:white; margin-left:10px;">浏览图库</a>
+        </div>
+    </section>
+
+    <!-- Trending Section -->
+    <main class="container trending-section">
+        <h2 class="section-title">热门时尚资讯</h2>
+        
+        <div class="trending-grid">
+            <!-- Article 1 -->
+            <article class="article-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/streetwear/400/300" alt="街头时尚">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>街头风格</span>
+                        <span>2023-10-24</span>
+                    </div>
+                    <h3 class="card-title">如何打造完美的街头风造型？</h3>
+                    <p class="card-excerpt">在这个季节，街头风不仅仅是牛仔裤和卫衣。探索如何通过配饰和色彩搭配，将基础款穿出高级感。</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="author-avatar"></div>
+                            <span class="author-name">时尚编辑部</span>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/minimal/400/300" alt="极简主义">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>极简主义</span>
+                        <span>2023-10-23</span>
+                    </div>
+                    <h3 class="card-title">少即是多：极简穿搭的进阶指南</h3>
+                    <p class="card-excerpt">极简主义不是简单的“少穿”，而是一种对质感的极致追求。掌握这3个核心原则，让你的衣橱焕然一新。</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="author-avatar"></div>
+                            <span class="author-name">Lily Chen</span>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/color/400/300" alt="色彩搭配">
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>色彩美学</span>
+                        <span>2023-10-22</span>
+                    </div>
+                    <h3 class="card-title">秋冬必备：如何运用大地色系</h3>
+                    <p class="card-excerpt">从驼色到深棕，大地色系如何平衡温暖与高级感？我们将为你推荐几种最显气质的配色方案。</p>
+                    <div class="card-footer">
+                        <div class="author">
+                            <div class="author-avatar"></div>
+                            <span class="author-name">Mango Style</span>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">探索时尚领域</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/women/300/200" alt="女性时尚">
+                    <div class="category-overlay">
+                        <span class="category-title">女性时尚</span>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/men/300/200" alt="男性时尚">
+                    <div class="category-overlay">
+                        <span class="category-title">男性时尚</span>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/accessories/300/200" alt="配饰">
+                    <div class="category-overlay">
+                        <span class="category-title">时尚配饰</span>
+                    </div>
+                </div>
+                <div class="category-item">
+                    <img src="https://picsum.photos/seed/beauty/300/200" alt="美妆护肤">
+                    <div class="category-overlay">
+                        <span class="category-title">美妆护肤</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container newsletter-content">
+            <h2 class="section-title" style="text-align:center; border:none; padding:0;">订阅我们的时尚周刊</h2>
+            <p>每周获取最新的流行趋势、独家穿搭技巧和品牌活动信息。加入超过50,000名时尚爱好者的行列。</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('感谢您的订阅！');">
+                <input type="email" class="newsletter-input" placeholder="请输入您的电子邮箱" required>
+                <button type="submit" class="btn btn-primary">立即订阅</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Mango中国</h3>
+                    <p>致力于为全球时尚爱好者提供权威、前沿的时尚资讯与生活方式分享。我们相信时尚是表达自我的一种方式。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">关于Mango</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">使用条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>时尚分类</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">女装新品</a></li>
+                        <li><a href="#">男装精选</a></li>
+                        <li><a href="#">配饰系列</a></li>
+                        <li><a href="#">鞋履大全</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">客服中心</a></li>
+                        <li><a href="#">退换货政策</a></li>
+                        <li><a href="#">门店查询</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mango中国官网. 保留所有权利. 本网站为设计演示，非官方Mango官方网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+            });
+        });
+
+        // Simple interaction for newsletter
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const input = newsletterForm.querySelector('input');
+            if(input.value) {
+                const btn = newsletterForm.querySelector('button');
+                const originalText = btn.innerText;
+                btn.innerText = '订阅成功！';
+                btn.style.backgroundColor = '#28a745';
+                btn.style.borderColor = '#28a745';
+                input.value = '';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = '';
+                    btn.style.borderColor = '';
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+                          </html>
