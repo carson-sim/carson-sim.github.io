@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影联盟 - 专业影视制作与视觉艺术社区平台</title>
+    <meta name="description" content="光影联盟致力于连接影视创作者与观众，提供电影资讯、导演访谈、影视后期制作技巧分享及独立电影展映服务，打造专业的影视爱好者聚集地。">
+    <meta name="keywords" content="光影联盟, 影视制作, 电影资讯, 导演访谈, 视觉艺术, 独立电影">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #e50914;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --bg-body: #f5f5f5;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #ccc;
+        }
+
+        nav a:hover, nav a.active {
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 5px 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            padding: 5px;
+            width: 150px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/cinema/1600/600') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: #b20710;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Main Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Content Area */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-meta {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .rank-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background: #eee;
+            color: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background: var(--accent-color); color: white; }
+        .rank-list li:nth-child(2) .rank-num { background: #e0e0e0; color: #333; }
+        .rank-list li:nth-child(3) .rank-num { background: #d6d6d6; color: #333; }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Banner */
+        .featured-banner {
+            width: 100%;
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .featured-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: 30px 20px;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #999;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                光影<span>联盟</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">电影资讯</a></li>
+                    <li><a href="#">导演访谈</a></li>
+                    <li><a href="#">影视制作</a></li>
+                    <li><a href="#">社区论坛</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索电影、导演或片名...">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>捕捉光影的艺术，连接创意与梦想</h1>
+                <p>光影联盟致力于为影视从业者与爱好者提供最前沿的行业资讯、深度的幕后制作解析以及高质量的交流平台。</p>
+                <div>
+                    <a href="#" class="btn">探索影片</a>
+                    <a href="#" class="btn btn-outline">加入社区</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Featured Banner -->
+            <section class="featured-banner">
+                <img src="https://picsum.photos/seed/filmfestival/1200/300" alt="光影联盟年度影展">
+                <div class="featured-caption">
+                    <h2>2024 独立电影周：聚焦新锐导演的视觉实验</h2>
+                    <p>汇集全球最佳短片作品，探索影像语言的无限可能。</p>
+                </div>
+            </section>
+
+            <div class="main-grid">
+                <!-- Left Content -->
+                <div class="content-col">
+                    <!-- Latest News -->
+                    <section class="content-section">
+                        <div class="section-title">
+                            <span>最新资讯</span>
+                            <a href="#">查看更多 &gt;</a>
+                        </div>
+                        <div class="card-grid">
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/news1/400/250" alt="电影海报" class="card-img">
+                                <div class="card-body">
+                                    <div class="card-meta"><span>行业动态</span><span>2023-10-24</span></div>
+                                    <h3 class="card-title"><a href="#">第76届戛纳电影节获奖名单公布，华语影片再创佳绩</a></h3>
+                                    <p class="card-excerpt">本届戛纳电影节共设主竞赛单元、一种关注单元等多个奖项，中国导演新作凭借独特的叙事风格脱颖而出...</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/news2/400/250" alt="摄影棚" class="card-img">
+                                <div class="card-body">
+                                    <div class="card-meta"><span>制作技巧</span><span>2023-10-22</span></div>
+                                    <h3 class="card-title"><a href="#">低成本电影拍摄中的灯光布光实战指南</a></h3>
+                                    <p class="card-excerpt">如何在有限的预算下利用自然光和基础灯具营造出电影级的画面质感？资深摄影师分享实用技巧。</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/news3/400/250" alt="电影节" class="card-img">
+                                <div class="card-body">
+                                    <div class="card-meta"><span>影展信息</span><span>2023-10-20</span></div>
+                                    <h3 class="card-title"><a href="#">上海国际电影节展映片单揭晓，经典修复版回归</a></h3>
+                                    <p class="card-excerpt">本次展映涵盖了从黑白默片到现代数字电影的经典作品，为影迷们带来一场跨越时光的视听盛宴。</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/news4/400/250" alt="剪辑台" class="card-img">
+                                <div class="card-body">
+                                    <div class="card-meta"><span>技术分享</span><span>2023-10-18</span></div>
+                                    <h3 class="card-title"><a href="#">达芬奇调色基础：如何理解色温与色调</a></h3>
+                                    <p class="card-excerpt">调色是赋予电影情感色彩的关键步骤，本文将深入浅出地讲解达芬奇软件中的核心调色概念。</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Production Process -->
+                    <section class="content-section">
+                        <div class="section-title">
+                            <span>制作流程</span>
+                            <a href="#">更多内容 &gt;</a>
+                        </div>
+                        <div class="card-grid">
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/cam/400/250" alt="摄影机" class="card-img">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#">前期筹备：从剧本到分镜</a></h3>
+                                    <p class="card-excerpt">详述剧本分析、角色设定及分镜绘制的重要性。</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/edit/400/250" alt="剪辑" class="card-img">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#">后期剪辑：叙事节奏的掌控</a></h3>
+                                    <p class="card-excerpt">剪辑师如何通过剪切点调整影片的节奏与情绪。</p>
+                                </div>
+                            </article>
+                            <article class="card">
+                                <img src="https://picsum.photos/seed/sound/400/250" alt="音效" class="card-img">
+                                <div class="card-body">
+                                    <h3 class="card-title"><a href="#">声音设计：画外音与音效的艺术</a></h3>
+                                    <p class="card-excerpt">声音不仅是辅助，更是叙事的重要驱动力。</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Right Sidebar -->
+                <aside class="sidebar-col">
+                    <!-- Hot Topics -->
+                    <div class="sidebar-section">
+                        <div class="section-title" style="font-size: 18px; margin-bottom: 15px; border:none; padding:0;">
+                            热门话题
+                        </div>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">#赛博朋克美学</a>
+                            <a href="#" class="tag">#胶片摄影</a>
+                            <a href="#" class="tag">#微电影</a>
+                            <a href="#" class="tag">#导演专访</a>
+                            <a href="#" class="tag">#色彩理论</a>
+                            <a href="#" class="tag">#独立制片</a>
+                        </div>
+                    </div>
+
+                    <!-- Ranking -->
+                    <div class="sidebar-section">
+                        <div class="section-title" style="font-size: 18px; margin-bottom: 15px; border:none; padding:0;">
+                            热门导演
+                        </div>
+                        <ul class="rank-list">
+                            <li>
+                                <a href="#">克里斯托弗·诺兰</a>
+                                <span>作品: 12</span>
+                            </li>
+                            <li>
+                                <a href="#">奉俊昊</a>
+                                <span>作品: 8</span>
+                            </li>
+                            <li>
+                                <a href="#">韦斯·安德森</a>
+                                <span>作品: 9</span>
+                            </li>
+                            <li>
+                                <a href="#">王家卫</a>
+                                <span>作品: 10</span>
+                            </li>
+                            <li>
+                                <a href="#">李安</a>
+                                <span>作品: 11</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- About Ad Placeholder -->
+                    <div class="sidebar-section" style="background: #333; color: white; text-align: center; padding: 30px 20px;">
+                        <h4 style="margin-bottom: 10px;">加入光影联盟创作者计划</h4>
+                        <p style="font-size: 13px; margin-bottom: 15px; color: #ccc;">获得独家拍摄设备支持与曝光机会</p>
+                        <a href="#" class="btn" style="width: 100%; text-align: center;">立即申请</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color:white; margin-bottom: 15px; display:inline-block;">
+                        光影<span>联盟</span>
+                    </a>
+                    <p style="font-size: 13px; line-height: 1.8;">
+                        光影联盟是一个专注于影视文化传播与创作者服务的垂直社区。我们致力于为电影人提供资源，为观众提供深度解读。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台简介</a></li>
+                        <li><a href="#">加入团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源中心</h4>
+                    <ul>
+                        <li><a href="#">电影百科</a></li>
+                        <li><a href="#">拍摄指南</a></li>
+                        <li><a href="#">行业报告</a></li>
+                        <li><a href="#">设备租赁</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博话题</a></li>
+                        <li><a href="#">Bilibili频道</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 光影联盟 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                                  </html>
