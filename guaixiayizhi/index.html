@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="怪侠一枝梅吧 - 汇总《怪侠一枝梅》电视剧、电影及同人资讯，提供高清剧照、演员资料、经典台词及剧集深度解析。">
+    <meta name="keywords" content="怪侠一枝梅吧,怪侠一枝梅,霍建华,刘诗诗,电视剧,电影,同人">
+    <title>怪侠一枝梅吧-经典武侠剧集与同人资讯平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #2c3e50;
+            --accent-color: #d4af37;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/ghyym/1600/600.jpg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #a00000;
+        }
+
+        /* Intro Section */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Character Cards */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .card-tags span {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: var(--text-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Content List (Episodes/Articles) */
+        .content-list {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .list-item {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .list-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .list-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .list-link {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .sidebar-section {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar-list li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar-list a {
+            display: block;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .sidebar-list a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            margin: 0 1rem;
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo"><span>❂</span> 怪侠一枝梅吧</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">剧集简介</a></li>
+                    <li><a href="#characters">主要人物</a></li>
+                    <li><a href="#articles">同人资讯</a></li>
+                    <li><a href="#gallery">精彩图集</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>江湖路远，一枝梅来</h1>
+            <p>重温经典武侠，探索《怪侠一枝梅》电视剧、电影及同人世界的精彩瞬间。这里是剧迷聚集地，分享心得，交流情感。</p>
+            <a href="#about" class="btn">了解更多</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2 class="section-title">关于《怪侠一枝梅》</h2>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <h2>侠义与浪漫的完美结合</h2>
+                    <p>《怪侠一枝梅》是一部融合了武侠、探案与情感元素的电视剧作品。故事以明朝为背景，讲述了神医、飞贼、杀手和捕头四人从互相利用到生死与共的江湖传奇。</p>
+                    <p>剧中不仅有惊险刺激的探案情节，更深刻描绘了人物在权力、仇恨与爱情之间的抉择。无论是主角团的兄弟情义，还是错综复杂的情感纠葛，都深深打动了无数观众。本吧致力于为所有喜爱该剧的粉丝提供一个交流、分享和回忆的温馨社区。</p>
+                    <p>在这里，你可以找到关于剧情的深度解析、角色的精彩同人创作，以及剧组背后的不为人知的故事。</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/wuxia/600/400.jpg" alt="怪侠一枝梅剧集海报">
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="section">
+            <div class="section-header">
+                <h2 class="section-title">经典角色</h2>
+            </div>
+            <div class="character-grid">
+                <!-- Character 1 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/huo/400/300.jpg" alt="离歌笑">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">离歌笑</h3>
+                        <p class="card-desc">神医，性格狂放不羁，武艺高强，因爱生恨而行走江湖，背负着沉重的过去。</p>
+                        <div class="card-tags">
+                            <span>主角</span>
+                            <span>神医</span>
+                            <span>复仇</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Character 2 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/liu/400/300.jpg" alt="燕三娘">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">燕三娘</h3>
+                        <p class="card-desc">女飞贼，机智灵动，身手矫健，是团队中不可或缺的智囊与行动派。</p>
+                        <div class="card-tags">
+                            <span>主角</span>
+                            <span>飞贼</span>
+                            <span>智囊</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Character 3 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/yan/400/300.jpg" alt="时速">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">时速</h3>
+                        <p class="card-desc">冷面杀手，沉默寡言，为了一个承诺坚守自我，内心却充满柔情。</p>
+                        <div class="card-tags">
+                            <span>主角</span>
+                            <span>杀手</span>
+                            <span>忠诚</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Character 4 -->
+                <article class="card">
+                    <div class="card-img">
+                        <img src="https://picsum.photos/seed/li/400/300.jpg" alt="任玉堂">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">任玉堂</h3>
+                        <p class="card-desc">捕头，正义感爆棚，致力于维护江湖秩序，与怪侠们亦敌亦友。</p>
+                        <div class="card-tags">
+                            <span>配角</span>
+                            <span>捕快</span>
+                            <span>正义</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Articles & News Section -->
+        <section id="articles" class="section">
+            <div class="content-list">
+                <div>
+                    <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                        <h2 class="section-title" style="margin: 0; font-size: 1.5rem;">吧内资讯</h2>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-info">
+                            <h3>重温经典：怪侠一枝梅中的探案逻辑与美学</h3>
+                            <div class="list-meta">发布于 2023-10-15 | 分类：深度解析</div>
+                        </div>
+                        <a href="#" class="list-link">阅读全文 &rarr;</a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-info">
+                            <h3>关于离歌笑与燕三娘CP的讨论：爱恨交织的江湖</h3>
+                            <div class="list-meta">发布于 2023-10-10 | 分类：同人讨论</div>
+                        </div>
+                        <a href="#" class="list-link">阅读全文 &rarr;</a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-info">
+                            <h3>剧组花絮：那些年我们在片场拍摄的感人瞬间</h3>
+                            <div class="list-meta">发布于 2023-09-28 | 分类：幕后花絮</div>
+                        </div>
+                        <a href="#" class="list-link">阅读全文 &rarr;</a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-info">
+                            <h3>角色小传：时速为何被称为“沉默的守护者”</h3>
+                            <div class="list-meta">发布于 2023-09-15 | 分类：角色分析</div>
+                        </div>
+                        <a href="#" class="list-link">阅读全文 &rarr;</a>
+                    </div>
+                </div>
+
+                <aside>
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">热门话题</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">离歌笑的独门医术</a></li>
+                            <li><a href="#">燕三娘的飞贼生涯</a></li>
+                            <li><a href="#">时速的神秘过去</a></li>
+                            <li><a href="#">任玉堂的正义之路</a></li>
+                            <li><a href="#">经典台词合集</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-section" style="margin-top: 2rem;">
+                        <h3 class="sidebar-title">友情链接</h3>
+                        <ul class="sidebar-list">
+                            <li><a href="#">霍建华粉丝站</a></li>
+                            <li><a href="#">刘诗诗官方后援会</a></li>
+                            <li><a href="#">武侠小说爱好者社区</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="section-header">
+                <h2 class="section-title">精彩图集</h2>
+            </div>
+            <div class="character-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));">
+                <img src="https://picsum.photos/seed/ghyym1/300/300.jpg" alt="剧照1" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+                <img src="https://picsum.photos/seed/ghyym2/300/300.jpg" alt="剧照2" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+                <img src="https://picsum.photos/seed/ghyym3/300/300.jpg" alt="剧照3" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+                <img src="https://picsum.photos/seed/ghyym4/300/300.jpg" alt="剧照4" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+                <img src="https://picsum.photos/seed/ghyym5/300/300.jpg" alt="剧照5" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+                <img src="https://picsum.photos/seed/ghyym6/300/300.jpg" alt="剧照6" style="width:100%; height:200px; object-fit:cover; border-radius:4px;">
+            </div>
+        </section>
+    </main>
+
+    <section class="quote-section">
+        <div class="container">
+            <p class="quote-text">“我本怪侠，心无挂碍，只为红颜一笑，纵死无悔。”</p>
+            <p class="quote-author">—— 离歌笑</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系吧务</a>
+                <a href="#">加入我们</a>
+            </div>
+            <p>&copy; 2023 怪侠一枝梅吧 版权所有. 本站为粉丝非盈利性质资源站.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">本站内容均来自互联网分享，仅供学习交流使用，请于下载后24小时内删除。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
