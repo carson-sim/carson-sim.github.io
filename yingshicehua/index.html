@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业影视策划服务平台，提供影视项目开发、剧本创意、全案策划及制作管理服务，助力影视项目从创意到成片的全程执行。">
+    <meta name="keywords" content="影视策划,影视项目开发,剧本策划,影视制作管理,影视全案策划">
+    <title>影视策划-专业影视项目开发与创意执行服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c92a2a;
+            --secondary-color: #212529;
+            --accent-color: #ffc107;
+            --bg-light: #f8f9fa;
+            --text-main: #343a40;
+            --text-light: #6c757d;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #a61e1e;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--secondary-color);
+        }
+
+        /* Services Section */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201, 42, 42, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Workflow Section */
+        .workflow {
+            background-color: var(--bg-light);
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .workflow-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: #e9ecef;
+            z-index: 0;
+            display: none;
+        }
+
+        @media(min-width: 992px) {
+            .workflow-steps::before {
+                display: block;
+            }
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            box-shadow: 0 0 0 8px #fff;
+        }
+
+        .step-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Portfolio/Case Study */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .project-link::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #adb5bd;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #343a40;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            nav {
+                display: none;
+            }
+
+            .cta-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                影视<span>策划</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#services" class="active">核心服务</a></li>
+                    <li><a href="#workflow">执行流程</a></li>
+                    <li><a href="#portfolio">案例展示</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-btn">获取策划方案</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>将创意转化为成熟的影视项目</h1>
+                <p>我们提供从概念开发、剧本撰写到全案制作管理的专业影视策划服务，协助您打造具有市场竞争力的影视内容。</p>
+                <div class="hero-actions">
+                    <a href="#portfolio" class="cta-btn">查看案例</a>
+                    <a href="#services" class="btn-outline">了解服务</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>专业影视策划服务</h2>
+                    <p>针对不同类型的影视项目，提供定制化的策划方案，确保项目方向清晰、制作高效。</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>项目概念开发</h3>
+                        <p>根据市场趋势与受众分析，挖掘核心创意，撰写项目大纲与核心梗概，明确故事内核与受众定位。</p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                        </div>
+                        <h3>剧本创作与优化</h3>
+                        <p>提供专业编剧团队，撰写分集大纲、人物小传及剧本正文。同时提供剧本评估与润色服务，提升剧本质量。</p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3>全案制作管理</h3>
+                        <p>提供从前期筹备、拍摄执行到后期制作的全流程管理服务，协调各方资源，把控项目进度与质量。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="section-padding workflow">
+            <div class="container">
+                <div class="section-title">
+                    <h2>标准策划执行流程</h2>
+                    <p>严谨的流程管理是项目成功的基础，我们确保每个环节都精准落地。</p>
+                </div>
+                <div class="workflow-steps">
+                    <div class="step-item">
+                        <div class="step-number">01</div>
+                        <h3>需求沟通</h3>
+                        <p>深入了解项目背景与目标受众，明确核心需求。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">02</div>
+                        <h3>创意构思</h3>
+                        <p>头脑风暴与概念设计，输出多个创意方向供选择。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">03</div>
+                        <h3>方案撰写</h3>
+                        <p>细化故事梗概、人物小传及分集大纲，形成完整策划案。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">04</div>
+                        <h3>方案评审</h3>
+                        <p>内部专家评审，根据反馈进行修改完善。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">05</div>
+                        <h3>执行落地</h3>
+                        <p>进入剧本创作或制作管理阶段，全程跟踪进度。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="section-padding">
+            <div class="container">
+                <div class="section-title">
+                    <h2>策划案例展示</h2>
+                    <p>我们曾参与多个影视项目的策划工作，积累了丰富的行业经验。</p>
+                </div>
+                <div class="portfolio-grid">
+                    <article class="project-card">
+                        <div class="project-img">
+                            <img src="https://picsum.photos/seed/movie1/400/250" alt="悬疑电影策划案">
+                            <span class="project-tag">电影</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《迷雾边缘》电影策划案</h3>
+                            <p>一部结合心理惊悚与解谜元素的商业电影策划，重点在于构建多层叙事结构。</p>
+                            <a href="#" class="project-link">查看详情</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-img">
+                            <img src="https://picsum.photos/seed/series2/400/250" alt="网络短剧策划">
+                            <span class="project-tag">网剧</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《都市微光》短剧策划</h3>
+                            <p>针对年轻用户群体的快节奏都市情感短剧策划，强调爽点与反转设计。</p>
+                            <a href="#" class="project-link">查看详情</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-img">
+                            <img src="https://picsum.photos/seed/doc3/400/250" alt="纪录片策划">
+                            <span class="project-tag">纪录片</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>《匠心传承》纪录片策划</h3>
+                            <p>关于非物质文化遗产传承人的深度纪录片策划，注重人文关怀与视觉美学。</p>
+                            <a href="#" class="project-link">查看详情</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding" style="background-color: var(--bg-light);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于影视策划服务的常见疑问与解答。</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item active">
+                        <div class="faq-question">影视策划与剧本创作的区别是什么？</div>
+                        <div class="faq-answer">
+                            <p>影视策划更侧重于项目的整体规划，包括市场定位、受众分析、核心创意的挖掘以及项目推进的时间表和预算规划。剧本创作则是策划案的具体落地，负责将策划中的创意转化为具体的文字内容。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">你们可以承接哪种类型的影视项目？</div>
+                        <div class="faq-answer">
+                            <p>我们承接电影、网络电影、网络剧、微短剧、纪录片以及商业广告片等各类影视项目的策划与制作管理服务。无论项目体量大小，我们都致力于提供专业支持。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何获取一份初步的项目策划方案？</div>
+                        <div class="faq-answer">
+                            <p>您可以通过联系页面提交您的项目需求或直接拨打咨询热线。我们会根据您的需求安排专业人员与您进行初步沟通，评估项目可行性并提供相应的报价建议。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
+            <div class="container">
+                <div style="background: var(--secondary-color); color: #fff; border-radius: var(--border-radius); padding: 60px 40px; text-align: center;">
+                    <h2 style="margin-bottom: 20px;">准备好开始您的影视项目了吗？</h2>
+                    <p style="color: #adb5bd; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        无论您是拥有成熟创意的创作者，还是希望制作优质内容的企业，我们都能为您提供专业的策划支持。
+                    </p>
+                    <a href="mailto:contact@filmplan.com" class="cta-btn" style="font-size: 18px; padding: 15px 40px;">联系我们咨询</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>影视策划</h4>
+                    <p style="color: #adb5bd; font-size: 14px; line-height: 1.8;">
+                        致力于为影视项目提供从创意孵化到落地执行的全流程专业服务，打造具有影响力的优质内容。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>服务项目</h4>
+                    <ul>
+                        <li><a href="#">项目概念开发</a></li>
+                        <li><a href="#">剧本撰写</a></li>
+                        <li><a href="#">全案制作管理</a></li>
+                        <li><a href="#">IP孵化与运营</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#services">关于我们</a></li>
+                        <li><a href="#portfolio">成功案例</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul style="color: #adb5bd; font-size: 14px;">
+                        <li>电话：400-123-4567</li>
+                        <li>邮箱：contact@filmplan.com</li>
+                        <li>地址：北京市朝阳区影视产业园A座</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 影视策划服务平台 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+                  </html>
